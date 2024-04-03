@@ -1,0 +1,24 @@
+nohup python demo.py ctdet_small \
+	--dataset table_small \
+	--demo /dev2/data/LORE/val \
+	--demo_name ptn_test \
+	--debug 1 \
+	--dataset_name PTN \
+	--wiz_detect \
+	--wiz_2dpe \
+	--wiz_stacking \
+	--tsfm_layers 3 \
+	--stacking_layers 3 \
+	--arch dla_34 \
+	--K 3000 \
+	--MK 5000 \
+	--vis_thresh_corner 0.3 \
+	--vis_thresh 0.35 \
+	--scores_thresh 0.35 \
+	--convert_onnx 0 \
+	--gpus 0 \
+	--nms \
+	--demo_dir ../visualization_ptn/ \
+	--anno_path ../data/PTN/json/test.json \
+    --load_model ../exp/ctdet_mid/training_wireless/model_best.pth \
+    --load_processor ../exp/ctdet_mid/training_wireless/processor_best.pth > log.txt

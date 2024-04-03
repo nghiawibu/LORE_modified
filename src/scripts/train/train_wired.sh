@@ -1,0 +1,24 @@
+nohup python main.py ctdet \
+	--dataset table \
+	--exp_id training_ptn \
+	--dataset_name PTN \
+	--image_dir /dev2/data/LORE/train \
+	--wiz_4ps \
+	--wiz_stacking \
+	--wiz_pairloss \
+	--tsfm_layers 3 \
+	--stacking_layers 3 \
+	--batch_size 4 \
+	--master_batch 6 \
+	--arch dla_34 \
+	--lr 1e-4 \
+	--K 500 \
+	--MK 1000 \
+	--num_epochs 100 \
+	--lr_step '70, 90' \
+	--gpus 0 \
+	--num_workers 8 \
+	--val_intervals 10 \
+	--resume \
+    --load_model ../exp/ctdet/training_ptn/model_last.pth \
+    --load_processor ../exp/ctdet/training_ptn/processor_last.pth > log.txt
